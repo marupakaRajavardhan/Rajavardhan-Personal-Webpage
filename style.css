@@ -1,7 +1,8 @@
 body {
   background-image: url("bg.jpg");
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
   font-size: large;
-  font-family: Arial, sans-serif;
   background-size: cover;
   background-repeat: repeat;
   background-attachment: fixed;
@@ -19,34 +20,28 @@ body {
   background: linear-gradient(130deg, rgba(147, 0, 44, 0.788) 20%, rgba(140, 0, 255, 0.704) 100%);
   text-align: center;
   color: #fff;
-  padding-top: 160px;
-  padding-bottom: 180px;
+  padding-top: 120px;
+  padding-bottom: 120px;
 }
 
 header {
   background: linear-gradient(130deg, rgba(147, 0, 44, 0.788) 20%, rgba(140, 0, 255, 0.704) 100%);
   padding: 1em;
   color: black;
-
-
   text-align: center;
-  /* Set the header as fixed */
-
-  width: 100%;
+  width: 92.5%;
   z-index: 1000;
-  /* Ensures the header stays on top */
-
   position: relative;
+  margin-left: 40px;
+  margin-right: 40px;
+  border-radius: 20px;
 
 }
 
 header.sticky {
   position: fixed;
-  /* Change to fixed when scrolling */
   top: 0;
-
 }
-
 
 nav ul {
   list-style: none;
@@ -85,10 +80,10 @@ section {
   padding-top: 80px;
 }
 
-h1,
-h2,
-h3 {
+h1,h2,h3{
   margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif; 
+  font-weight: 700;
 }
 
 ul {
@@ -213,24 +208,25 @@ h2 {
 html {
   scroll-behavior: smooth;
 }
+
 header {
-  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for background color and shadow */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 header.sticky {
-  background-color: rgba(0, 0, 0, 0.8); /* Change color when sticky */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow */
+  background-color: rgba(0, 0, 0, 0.8); 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
 }
 
-/* Zoom-in effect for sections */
 section {
-  transform: scale(0.9); /* Start slightly zoomed out */
-  opacity: 0; /* Start hidden */
+  transform: scale(0.9);
+  opacity: 0; 
   transition: transform 0.5s ease, opacity 0.5s ease; 
 }
-#hero{
-  opacity : initial;
+#hero {
+ opacity: initial;
 }
+
 section.active {
   transform: scale(1); 
   opacity: 1; 
@@ -238,18 +234,90 @@ section.active {
 
 
 body {
-  background-image: url("bg.jpg");
-  background-attachment: fixed;
+  background-image: url("bg.jpg"); 
+  background-attachment: fixed; 
   background-size: cover; 
   background-position: center; 
 }
-
 
 nav a {
   transition: transform 0.3s ease; 
 }
 
 nav a:hover {
-  transform: scale(1.1);
+  transform: scale(1.1); 
+}
+#hero h2, #hero p {
+  opacity: 0; 
+  transform: translateX(-100%); 
+  transition: opacity 1s ease, transform 1s ease; 
 }
 
+#hero.active h2, #hero.active p {
+  opacity: 1; 
+  transform: translateX(0); 
+}
+#hero h1, #hero p {
+  opacity: 0; 
+  transform: translateX(-100%); 
+  transition: opacity 1.2s ease, transform 1.2s ease; 
+}
+
+#hero.active h1, #hero.active p {
+  opacity: 1; 
+  transform: translateX(0); 
+}
+#hero h3, #hero p {
+  opacity: 0; 
+  transform: translateX(-100%); 
+  transition: opacity 1.4s ease, transform 1.4s ease; 
+}
+
+#hero.active h3, #hero.active p {
+  opacity: 1; 
+  transform: translateX(0); 
+}
+footer {
+  text-align: center; 
+  padding: 20px; 
+  background-color: #f8f8f800; 
+  color: #f8f0f0; 
+  position: relative; 
+  bottom: 0; 
+  border-radius: 20px;
+  margin-left: 20px;
+  margin-right: px;
+  font-size: 140%;
+}
+@keyframes flicker {
+  0%, 100% {
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.729);
+  }
+  50% {
+      text-shadow: 0 0 20px rgb(244, 239, 239);
+  }
+}
+
+footer {
+  animation: flicker 1s infinite; 
+}
+@keyframes pulse {
+  0%, 100% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.05); 
+  }
+}
+
+ #hero #hero-passage{
+  animation: pulse 0.7s infinite; 
+}
+#hero h1 {
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
