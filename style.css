@@ -213,3 +213,41 @@ h2 {
 html {
   scroll-behavior: smooth;
 }
+header {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for background color and shadow */
+}
+
+header.sticky {
+  background-color: rgba(0, 0, 0, 0.8); /* Change color when sticky */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow */
+}
+
+/* Zoom-in effect for sections */
+section {
+  transform: scale(0.9); /* Start slightly zoomed out */
+  opacity: 0; /* Start hidden */
+  transition: transform 0.5s ease, opacity 0.5s ease; 
+}
+
+section.active {
+  transform: scale(1); 
+  opacity: 1; 
+}
+
+
+body {
+  background-image: url("bg.jpg");
+  background-attachment: fixed;
+  background-size: cover; 
+  background-position: center; 
+}
+
+
+nav a {
+  transition: transform 0.3s ease; 
+}
+
+nav a:hover {
+  transform: scale(1.1);
+}
+
