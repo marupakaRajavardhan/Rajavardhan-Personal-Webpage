@@ -1,4 +1,12 @@
 const sections = document.querySelectorAll('section');
+
+// Parallax scrolling effect for the background
+const parallaxEffect = () => {
+    const scrollPosition = window.scrollY;
+    document.body.style.backgroundPositionY = `${scrollPosition * -0.1}px`; // Adjust for parallax
+};
+
+// Zoom-in effect for sections
 const scrollEffect = () => {
     sections.forEach((section) => {
         const rect = section.getBoundingClientRect();
@@ -10,20 +18,18 @@ const scrollEffect = () => {
     });
 };
 
-window.addEventListener('scroll', scrollEffect);
-scrollEffect();
-
 window.addEventListener('scroll', () => {
-    const scrollPosition = window.scrollY;
-    document.body.style.backgroundPositionY = `${scrollPosition * -0.15}px`;
+    parallaxEffect();
+    scrollEffect();
 });
 
+// Sticky header with shadow
 const header = document.querySelector('header');
 const hero = document.getElementById('hero');
 
 window.addEventListener('scroll', () => {
     const heroBottom = hero.getBoundingClientRect().bottom;
-    
+
     if (heroBottom <= 0) {
         header.classList.add('sticky');
     } else {
@@ -31,6 +37,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Smooth scroll to sections
 document.querySelectorAll('nav a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -44,3 +51,6 @@ document.querySelectorAll('nav a').forEach(anchor => {
         });
     });
 });
+
+
+
